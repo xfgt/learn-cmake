@@ -1,0 +1,4 @@
+C:/Users/LOCAL_ADMIN/learn-cmake/ninja/CMakeFiles/MyProgram.dir
+C:/Users/LOCAL_ADMIN/learn-cmake/ninja/CMakeFiles/MyProgram2.dir
+C:/Users/LOCAL_ADMIN/learn-cmake/ninja/CMakeFiles/edit_cache.dir
+C:/Users/LOCAL_ADMIN/learn-cmake/ninja/CMakeFiles/rebuild_cache.dir
