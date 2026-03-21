@@ -3,11 +3,13 @@
 # there can be others CMakeLists for each subdirectory if that's necessary;
 
 
-cmake_minimum_required(VERSION 3.23)
+cmake_minimum_required(VERSION 3.23) # start
 
 project (MyProjectName) 
 
 set(CMAKE_CXX_STANDARD 11) # set the c++ version 
+#add_subdirectory("LibraryDir/") # add a subdir which has another CMakeLists.txt file with instructions. (for example a folder of a library)
+
 
 add_executable(MyProgram)
 add_executable(MyProgram2)
@@ -24,7 +26,7 @@ target_sources(MyProgram2
 	"Primer-2/function1.cpp"
 )
 
-#add_subdirectory("LibraryDir/") # add a subdir which has another CMakeLists.txt file with instructions. (for example a folder of a library)
+
 
 
 
