@@ -7,7 +7,10 @@ cmake_minimum_required(VERSION 3.23) # start
 
 project (MyProjectName) 
 
-#set(CMAKE_CXX_STANDARD 17) # set the c++ version # Doesnt work
+# set the c++ version
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 
 #add_subdirectory("LibraryDir/") # add a subdir which has another CMakeLists.txt file with instructions. (for example a folder of a library)
@@ -28,13 +31,14 @@ target_sources(MyProgram2
 	"Primer-2/function1.cpp"
 )
 
+# Simpler version
+#add_executable(MyProgram "Start-1/main.cpp" "Start-1/printMessage.cpp")
+#add_executable(MyProgram2 "Primer-2/main.cpp" "Primer-2/function1.cpp")
+
+
 # Primer-3-Library
 # Add an executable as usual and include the entry point path.
 add_executable(Primer-3)
-set_target_properties(Primer-3 PROPERTIES # Doesnt work
-	CXX_STANDARD 11
-    CXX_STANDARD_REQUIRED ON
-)
 target_sources(Primer-3
 	PRIVATE
 	"Primer-3-Library/main.cpp"
@@ -58,11 +62,9 @@ add_library(MyLibrary2
 # Link the Libraries(MyLibrary1), (MyLibrary2) to the Executable (Primer-3)
 target_link_libraries(Primer-3 PRIVATE MyLibrary1 MyLibrary2)
 
-
-
-
-# Doesnt work
-# This tells MSVC to update the __cplusplus macro
+# Apply this to ALL targets so the __cplusplus macro is correct everywhere
 if(MSVC)
-    target_compile_options(Primer-3 PUBLIC "/Zc:__cplusplus")
+    target_compile_options(Primer-3 PRIVATE "/Zc:__cplusplus")
+    target_compile_options(MyLibrary1 PRIVATE "/Zc:__cplusplus")
+    target_compile_options(MyLibrary2 PRIVATE "/Zc:__cplusplus")
 endif()
