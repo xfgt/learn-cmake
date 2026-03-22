@@ -62,9 +62,17 @@ add_library(MyLibrary2
 # Link the Libraries(MyLibrary1), (MyLibrary2) to the Executable (Primer-3)
 target_link_libraries(Primer-3 PRIVATE MyLibrary1 MyLibrary2)
 
+
+add_subdirectory(cmake101)
+
+
 # Apply this to ALL targets so the __cplusplus macro is correct everywhere
 if(MSVC)
     target_compile_options(Primer-3 PRIVATE "/Zc:__cplusplus")
     target_compile_options(MyLibrary1 PRIVATE "/Zc:__cplusplus")
     target_compile_options(MyLibrary2 PRIVATE "/Zc:__cplusplus")
 endif()
+
+
+# Last track: https://youtu.be/SYgESCQeGJY?si=nxHxVm1aRIhHSdll
+

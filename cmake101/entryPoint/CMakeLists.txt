@@ -1,0 +1,2 @@
+add_executable(cmake101Program main.cpp)
+target_link_libraries(cmake101Program PRIVATE LibMyCustom1)
